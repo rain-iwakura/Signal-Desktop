@@ -10,10 +10,10 @@ import * as Errors from '../types/errors';
 import type { PresentableSource } from '../types/Calling';
 import type { LocalizerType } from '../types/Util';
 import {
-  REQUESTED_SCREEN_SHARE_WIDTH,
-  REQUESTED_SCREEN_SHARE_HEIGHT,
-  REQUESTED_SCREEN_SHARE_FRAMERATE,
-} from '../calling/constants';
+  getRequestedScreenShareWidth,
+  getRequestedScreenShareHeight,
+  getRequestedScreenShareFramerate,
+} from "../calling/streaming";
 import { strictAssert } from './assert';
 import { explodePromise } from './explodePromise';
 import { isNotNil } from './isNotNil';
@@ -195,17 +195,17 @@ export class DesktopCapturer {
       // Apply constraints and ensure that there is at least 1 frame per second.
       await videoTrack.applyConstraints({
         width: {
-          max: REQUESTED_SCREEN_SHARE_WIDTH,
-          ideal: REQUESTED_SCREEN_SHARE_WIDTH,
+          max: getRequestedScreenShareWidth(),
+          ideal: getRequestedScreenShareWidth(),
         },
         height: {
-          max: REQUESTED_SCREEN_SHARE_HEIGHT,
-          ideal: REQUESTED_SCREEN_SHARE_HEIGHT,
+          max: getRequestedScreenShareHeight(),
+          ideal: getRequestedScreenShareHeight(),
         },
         frameRate: {
           min: 1,
-          max: REQUESTED_SCREEN_SHARE_FRAMERATE,
-          ideal: REQUESTED_SCREEN_SHARE_FRAMERATE,
+          max: getRequestedScreenShareFramerate(),
+          ideal: getRequestedScreenShareFramerate(),
         },
       });
 
@@ -259,9 +259,9 @@ export class DesktopCapturer {
     // eslint-disable-next-line global-require, @typescript-eslint/no-var-requires
     const macScreenShare = require('@indutny/mac-screen-share');
     const stream: Stream = new macScreenShare.Stream({
-      width: REQUESTED_SCREEN_SHARE_WIDTH,
-      height: REQUESTED_SCREEN_SHARE_HEIGHT,
-      frameRate: REQUESTED_SCREEN_SHARE_FRAMERATE,
+      width: getRequestedScreenShareWidth(),
+      height: getRequestedScreenShareHeight(),
+      frameRate: getRequestedScreenShareFramerate(),
 
       onStart: () => {
         isRunning = true;

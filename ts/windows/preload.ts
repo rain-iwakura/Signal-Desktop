@@ -54,6 +54,7 @@ installCallback('setEmojiSkinToneDefault');
 installCallback('validateBackup');
 
 installSetting('alwaysRelayCalls');
+installSetting('gameStream');
 installSetting('audioMessage');
 installSetting('audioNotification');
 installSetting('autoConvertEmoji');

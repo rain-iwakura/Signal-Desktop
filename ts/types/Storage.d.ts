@@ -57,6 +57,7 @@ export type IdentityKeyMap = Record<
 
 export type StorageAccessType = {
   'always-relay-calls': boolean;
+  'game-stream': boolean;
   'audio-notification': boolean;
   'auto-download-update': boolean;
   'auto-download-attachment': AutoDownloadAttachmentType;

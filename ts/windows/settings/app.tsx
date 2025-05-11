@@ -63,6 +63,7 @@ SettingsWindowProps.onRender(
     hasNotifications,
     hasReadReceipts,
     hasRelayCalls,
+    hasGameStream,
     hasSpellCheck,
     hasStoriesDisabled,
     hasTextFormatting,
@@ -102,6 +103,7 @@ SettingsWindowProps.onRender(
     onNotificationContentChange,
     onNotificationsChange,
     onRelayCallsChange,
+    onGameStreamChange,
     onSelectedCameraChange,
     onSelectedMicrophoneChange,
     onSelectedSpeakerChange,
@@ -175,6 +177,7 @@ SettingsWindowProps.onRender(
         hasNotifications={hasNotifications}
         hasReadReceipts={hasReadReceipts}
         hasRelayCalls={hasRelayCalls}
+        hasGameStream={hasGameStream}
         hasSpellCheck={hasSpellCheck}
         hasStoriesDisabled={hasStoriesDisabled}
         hasTextFormatting={hasTextFormatting}
@@ -220,6 +223,7 @@ SettingsWindowProps.onRender(
         onNotificationContentChange={onNotificationContentChange}
         onNotificationsChange={onNotificationsChange}
         onRelayCallsChange={onRelayCallsChange}
+        onGameStreamChange={onGameStreamChange}
         onSelectedCameraChange={onSelectedCameraChange}
         onSelectedMicrophoneChange={onSelectedMicrophoneChange}
         onSelectedSpeakerChange={onSelectedSpeakerChange}

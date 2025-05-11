@@ -46,6 +46,7 @@ const settingNotificationDrawAttention = createSetting(
 );
 const settingNotificationSetting = createSetting('notificationSetting');
 const settingRelayCalls = createSetting('alwaysRelayCalls');
+const settingGameStream = createSetting('gameStream');
 const settingSentMediaQuality = createSetting('sentMediaQualitySetting');
 const settingSpellCheck = createSetting('spellCheck');
 const settingTextFormatting = createSetting('textFormatting');
@@ -184,6 +185,7 @@ async function renderPreferences() {
     hasNotificationAttention,
     hasReadReceipts,
     hasRelayCalls,
+    hasGameStream,
     hasSpellCheck,
     hasStoriesDisabled,
     hasTextFormatting,
@@ -231,6 +233,7 @@ async function renderPreferences() {
     hasNotificationAttention: settingNotificationDrawAttention.getValue(),
     hasReadReceipts: settingReadReceipts.getValue(),
     hasRelayCalls: settingRelayCalls.getValue(),
+    hasGameStream: settingGameStream.getValue(),
     hasSpellCheck: settingSpellCheck.getValue(),
     hasStoriesDisabled: settingHasStoriesDisabled.getValue(),
     hasTextFormatting: settingTextFormatting.getValue(),
@@ -332,6 +335,7 @@ async function renderPreferences() {
     hasNotifications: notificationContent !== 'off',
     hasReadReceipts,
     hasRelayCalls,
+    hasGameStream,
     hasSpellCheck,
     hasStoriesDisabled,
     hasTextFormatting,
@@ -471,6 +475,7 @@ async function renderPreferences() {
       return value;
     }),
     onRelayCallsChange: attachRenderCallback(settingRelayCalls.setValue),
+    onGameStreamChange: attachRenderCallback(settingGameStream.setValue),
     onSelectedCameraChange: attachRenderCallback(settingVideoInput.setValue),
     onSelectedMicrophoneChange: attachRenderCallback(
       settingAudioInput.setValue

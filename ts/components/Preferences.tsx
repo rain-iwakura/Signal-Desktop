@@ -108,6 +108,7 @@ export type PropsDataType = {
   hasNotifications: boolean;
   hasReadReceipts: boolean;
   hasRelayCalls?: boolean;
+  hasGameStream?: boolean;
   hasSpellCheck: boolean;
   hasStoriesDisabled: boolean;
   hasTextFormatting: boolean;
@@ -202,6 +203,7 @@ type PropsFunctionType = {
   onNotificationContentChange: SelectChangeHandlerType<NotificationSettingType>;
   onNotificationsChange: CheckboxChangeHandlerType;
   onRelayCallsChange: CheckboxChangeHandlerType;
+  onGameStreamChange: CheckboxChangeHandlerType;
   onSelectedCameraChange: SelectChangeHandlerType<string | undefined>;
   onSelectedMicrophoneChange: SelectChangeHandlerType<AudioDevice | undefined>;
   onSelectedSpeakerChange: SelectChangeHandlerType<AudioDevice | undefined>;
@@ -306,6 +308,7 @@ export function Preferences({
   hasNotifications,
   hasReadReceipts,
   hasRelayCalls,
+  hasGameStream,
   hasSpellCheck,
   hasStoriesDisabled,
   hasTextFormatting,
@@ -347,6 +350,7 @@ export function Preferences({
   onNotificationContentChange,
   onNotificationsChange,
   onRelayCallsChange,
+  onGameStreamChange,
   onSelectedCameraChange,
   onSelectedMicrophoneChange,
   onSelectedSpeakerChange,
@@ -1149,6 +1153,15 @@ export function Preferences({
             moduleClassName="Preferences__checkbox"
             name="relayCalls"
             onChange={onRelayCallsChange}
+          />
+
+          <Checkbox
+            checked={hasGameStream}
+            description={i18n('icu:gameStreamDetail')}
+            label={i18n('icu:gameStreamDescription')}
+            moduleClassName="Preferences__checkbox"
+            name="gameStream"
+            onChange={onGameStreamChange}
           />
         </SettingsRow>
       </>

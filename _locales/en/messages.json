@@ -2129,6 +2129,14 @@
     "messageformat": "Relay all calls through the Signal server to avoid revealing your IP address to your contact. Enabling will reduce call quality.",
     "description": "Details describing the always relay calls setting"
   },
+  "icu:gameStreamDescription": {
+    "messageformat": "High framerate screen sharing",
+    "description": "Details describing the game stream setting"
+  },
+  "icu:gameStreamDetail": {
+    "messageformat": "Increase screen share framerate. Enabling will reduce screen share resolution.",
+    "description": "Details describing the game stream setting"
+  },
   "icu:permissions": {
     "messageformat": "Permissions",
     "description": "Header for permissions section of settings"

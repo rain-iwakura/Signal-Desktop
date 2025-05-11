@@ -76,6 +76,7 @@ type NotificationSettingType = 'message' | 'name' | 'count' | 'off';
 
 export type IPCEventsValuesType = {
   alwaysRelayCalls: boolean | undefined;
+  gameStream: boolean | undefined;
   audioNotification: boolean | undefined;
   audioMessage: boolean;
   autoConvertEmoji: boolean;
@@ -535,6 +536,10 @@ export function createIPCEvents(
     getAlwaysRelayCalls: () => window.storage.get('always-relay-calls'),
     setAlwaysRelayCalls: value =>
       window.storage.put('always-relay-calls', value),
+
+    getGameStream: () => window.storage.get('game-stream'),
+    setGameStream: value =>
+      window.storage.put('game-stream', value),
 
     getAutoLaunch: () => window.IPC.getAutoLaunch(),
     setAutoLaunch: async (value: boolean) => {

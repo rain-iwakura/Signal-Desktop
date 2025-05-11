@@ -100,10 +100,12 @@ import {
   REQUESTED_VIDEO_FRAMERATE,
   REQUESTED_GROUP_VIDEO_WIDTH,
   REQUESTED_GROUP_VIDEO_HEIGHT,
-  REQUESTED_SCREEN_SHARE_WIDTH,
-  REQUESTED_SCREEN_SHARE_HEIGHT,
-  REQUESTED_SCREEN_SHARE_FRAMERATE,
 } from '../calling/constants';
+import {
+  getRequestedScreenShareWidth,
+  getRequestedScreenShareHeight,
+  getRequestedScreenShareFramerate,
+} from "../calling/streaming";
 import { callingMessageToProto } from '../util/callingMessageToProto';
 import { requestMicrophonePermissions } from '../util/requestMicrophonePermissions';
 import { SignalService as Proto } from '../protobuf';
@@ -2302,9 +2304,9 @@ export class CallingClass {
 
     // Start screen sharing stream
     await this.enableCaptureAndSend(call, {
-      maxFramerate: REQUESTED_SCREEN_SHARE_FRAMERATE,
-      maxHeight: REQUESTED_SCREEN_SHARE_HEIGHT,
-      maxWidth: REQUESTED_SCREEN_SHARE_WIDTH,
+      maxFramerate: getRequestedScreenShareFramerate(),
+      maxHeight: getRequestedScreenShareHeight(),
+      maxWidth: getRequestedScreenShareWidth(),
       mediaStream,
       onEnded: () => {
         this.#reduxInterface?.cancelPresenting();
